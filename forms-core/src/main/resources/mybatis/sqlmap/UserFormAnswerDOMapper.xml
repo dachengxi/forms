@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.cxis.forms.dao.mapper.UserFormAnswerDOMapper">
+  <resultMap id="BaseResultMap" type="me.cxis.forms.dao.model.UserFormAnswerDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_form_id" jdbcType="BIGINT" property="userFormId" />
+    <result column="widget_type" jdbcType="SMALLINT" property="widgetType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="me.cxis.forms.dao.model.UserFormAnswerDO">
+    <result column="answer" jdbcType="LONGVARCHAR" property="answer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, update_time, creator_id, modifier_id, is_deleted, user_id, user_form_id, 
+    widget_type
+  </sql>
+  <sql id="Blob_Column_List">
+    answer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_form_answer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_form_answer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    insert into user_form_answer (id, create_time, update_time, 
+      creator_id, modifier_id, is_deleted, 
+      user_id, user_form_id, widget_type, 
+      answer)
+    values (#{id,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{creatorId,jdbcType=BIGINT}, #{modifierId,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}, 
+      #{userId,jdbcType=BIGINT}, #{userFormId,jdbcType=BIGINT}, #{widgetType,jdbcType=SMALLINT}, 
+      #{answer,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    insert into user_form_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="modifierId != null">
+        modifier_id,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userFormId != null">
+        user_form_id,
+      </if>
+      <if test="widgetType != null">
+        widget_type,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null">
+        #{modifierId,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userFormId != null">
+        #{userFormId,jdbcType=BIGINT},
+      </if>
+      <if test="widgetType != null">
+        #{widgetType,jdbcType=SMALLINT},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    update user_form_answer
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null">
+        modifier_id = #{modifierId,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userFormId != null">
+        user_form_id = #{userFormId,jdbcType=BIGINT},
+      </if>
+      <if test="widgetType != null">
+        widget_type = #{widgetType,jdbcType=SMALLINT},
+      </if>
+      <if test="answer != null">
+        answer = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    update user_form_answer
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=BIGINT},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      user_form_id = #{userFormId,jdbcType=BIGINT},
+      widget_type = #{widgetType,jdbcType=SMALLINT},
+      answer = #{answer,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    update user_form_answer
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=BIGINT},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      user_form_id = #{userFormId,jdbcType=BIGINT},
+      widget_type = #{widgetType,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="me.cxis.forms.dao.model.UserFormAnswerDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_form_id" jdbcType="BIGINT" property="userFormId" />
+    <result column="widget_type" jdbcType="SMALLINT" property="widgetType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="me.cxis.forms.dao.model.UserFormAnswerDO">
+    <result column="answer" jdbcType="LONGVARCHAR" property="answer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, update_time, creator_id, modifier_id, is_deleted, user_id, user_form_id, 
+    widget_type
+  </sql>
+  <sql id="Blob_Column_List">
+    answer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_form_answer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_form_answer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    insert into user_form_answer (id, create_time, update_time, 
+      creator_id, modifier_id, is_deleted, 
+      user_id, user_form_id, widget_type, 
+      answer)
+    values (#{id,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{creatorId,jdbcType=BIGINT}, #{modifierId,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}, 
+      #{userId,jdbcType=BIGINT}, #{userFormId,jdbcType=BIGINT}, #{widgetType,jdbcType=SMALLINT}, 
+      #{answer,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    insert into user_form_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="modifierId != null">
+        modifier_id,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userFormId != null">
+        user_form_id,
+      </if>
+      <if test="widgetType != null">
+        widget_type,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null">
+        #{modifierId,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userFormId != null">
+        #{userFormId,jdbcType=BIGINT},
+      </if>
+      <if test="widgetType != null">
+        #{widgetType,jdbcType=SMALLINT},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    update user_form_answer
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null">
+        modifier_id = #{modifierId,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userFormId != null">
+        user_form_id = #{userFormId,jdbcType=BIGINT},
+      </if>
+      <if test="widgetType != null">
+        widget_type = #{widgetType,jdbcType=SMALLINT},
+      </if>
+      <if test="answer != null">
+        answer = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    update user_form_answer
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=BIGINT},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      user_form_id = #{userFormId,jdbcType=BIGINT},
+      widget_type = #{widgetType,jdbcType=SMALLINT},
+      answer = #{answer,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="me.cxis.forms.dao.model.UserFormAnswerDO">
+    update user_form_answer
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=BIGINT},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      user_form_id = #{userFormId,jdbcType=BIGINT},
+      widget_type = #{widgetType,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

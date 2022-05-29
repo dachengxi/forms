@@ -1,0 +1,101 @@
+{
+  "userFormId": 1,
+  "userFormStatus": 1,
+  "formId": 123456,
+  "formCode": "code",
+  "formVersion": 1,
+  "formType": 1,
+  "formTitle": "标题",
+  "formDescription": "描述",
+  "totalPage": 2,
+  "formMode": 1,
+  "currentPage": 1,
+  "questions": [
+    {
+      "id": 1,
+      "templateId": 123456,
+      "title": "单行文本标题",
+      "description": "描述",
+      "status": 1,
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 1,
+      "widgetRule": {
+        "headTitle": "姓名",
+        "tailTitle": "（或者昵称）",
+        "required": true,
+        "min": 3,
+        "max": 10,
+        "direction": null
+      },
+      "value": "Jack",
+      "defaultValue": "Your Name",
+      "placeholder": "Please input your name",
+      "answerId": 1
+    },
+    {
+      "id": 2,
+      "templateId": 123456,
+      "title": "多行文本标题",
+      "description": "描述",
+      "status": 1,
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 2,
+      "widgetRule": {
+        "headTitle": "姓名",
+        "tailTitle": "（或者昵称）",
+        "required": true,
+        "min": 3,
+        "max": 10,
+        "direction": null
+      },
+      "value": "Jack\nMan",
+      "defaultValue": "Information",
+      "placeholder": "Please input your personal information",
+      "answerId": 2
+    },
+    {
+      "id": 3,
+      "templateId": 123456,
+      "title": "多项单行文本标题",
+      "description": "描述",
+      "status": 1,
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 2,
+      "widgetRule": {
+        "direction": "horizontal/vertical",
+        "items": [
+          {
+            "headTitle": "姓名",
+            "tailTitle": "（或者昵称）",
+            "required": true,
+            "min": 3,
+            "max": 10
+          },
+          {
+            "headTitle": "年龄",
+            "tailTitle": "岁",
+            "required": true,
+            "min": 3,
+            "max": 10
+          }
+        ]
+      },
+      "values": [
+        {
+          "value": "Jack",
+          "defaultValue": "Your Name",
+          "placeholder": "Please input your name"
+        },
+        {
+          "value": "12",
+          "defaultValue": "0",
+          "placeholder": "Please input your age"
+        }
+      ],
+      "answerId": 3
+    }
+  ]
+}
