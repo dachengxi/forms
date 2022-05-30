@@ -1,6 +1,7 @@
 package me.cxis.forms.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class WidgetRuleVO implements Serializable {
 
@@ -15,6 +16,18 @@ public class WidgetRuleVO implements Serializable {
     private int max;
 
     private String direction;
+
+    private String value;
+
+    private String defaultValue;
+
+    private String placeholder;
+
+    private int order;
+
+    private boolean defaultSelected;
+
+    private List<WidgetRuleVO> items;
 
     public String getHeadTitle() {
         return headTitle;
@@ -64,6 +77,54 @@ public class WidgetRuleVO implements Serializable {
         this.direction = direction;
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public String getPlaceholder() {
+        return placeholder;
+    }
+
+    public void setPlaceholder(String placeholder) {
+        this.placeholder = placeholder;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public boolean isDefaultSelected() {
+        return defaultSelected;
+    }
+
+    public void setDefaultSelected(boolean defaultSelected) {
+        this.defaultSelected = defaultSelected;
+    }
+
+    public List<WidgetRuleVO> getItems() {
+        return items;
+    }
+
+    public void setItems(List<WidgetRuleVO> items) {
+        this.items = items;
+    }
+
     @Override
     public String toString() {
         return "WidgetRuleVO{" +
@@ -73,6 +134,12 @@ public class WidgetRuleVO implements Serializable {
                 ", min=" + min +
                 ", max=" + max +
                 ", direction='" + direction + '\'' +
+                ", value='" + value + '\'' +
+                ", defaultValue='" + defaultValue + '\'' +
+                ", placeholder='" + placeholder + '\'' +
+                ", order=" + order +
+                ", defaultSelected=" + defaultSelected +
+                ", items=" + items +
                 '}';
     }
 }

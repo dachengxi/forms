@@ -21,7 +21,9 @@ public class UserFormAnswerDO {
 
     private Short widgetType;
 
-    private String answer;
+    private Long questionId;
+
+    private String value;
 
     public Long getId() {
         return id;
@@ -95,11 +97,19 @@ public class UserFormAnswerDO {
         this.widgetType = widgetType;
     }
 
-    public String getAnswer() {
-        return answer;
+    public Long getQuestionId() {
+        return questionId;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

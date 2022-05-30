@@ -3,11 +3,14 @@ package me.cxis.forms.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class TemplateVO implements Serializable {
-
+public class FormVO implements Serializable {
     private int id;
 
+    private int templateId;
+
     private String code;
+
+    private int version;
 
     private int type;
 
@@ -19,12 +22,9 @@ public class TemplateVO implements Serializable {
 
     private int totalPage;
 
-    /**
-     * 模式：1-分页模式 2-一题一页 3-一页
-     */
     private int mode;
 
-    private List<TemplateQuestionVO> questions;
+    private List<FormQuestionVO> questions;
 
     public int getId() {
         return id;
@@ -34,12 +34,28 @@ public class TemplateVO implements Serializable {
         this.id = id;
     }
 
+    public int getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(int templateId) {
+        this.templateId = templateId;
+    }
+
     public String getCode() {
         return code;
     }
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
     }
 
     public int getType() {
@@ -90,19 +106,21 @@ public class TemplateVO implements Serializable {
         this.mode = mode;
     }
 
-    public List<TemplateQuestionVO> getQuestions() {
+    public List<FormQuestionVO> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<TemplateQuestionVO> questions) {
+    public void setQuestions(List<FormQuestionVO> questions) {
         this.questions = questions;
     }
 
     @Override
     public String toString() {
-        return "TemplateVO{" +
+        return "FormVO{" +
                 "id=" + id +
+                ", templateId=" + templateId +
                 ", code='" + code + '\'' +
+                ", version=" + version +
                 ", type=" + type +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

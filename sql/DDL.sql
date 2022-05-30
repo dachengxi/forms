@@ -52,7 +52,6 @@ CREATE TABLE template_question (
     template_id bigint(20)                    NOT NULL COMMENT '模板ID',
     title       varchar(255)                  NOT NULL COMMENT '标题',
     description varchar(500)        DEFAULT NULL COMMENT '描述',
-    status      smallint(6)         DEFAULT 1 NOT NULL COMMENT '状态：1-新建 2-启用 3-禁用',
     `order`     int(10)                       NOT NULL COMMENT '排序',
     page_number int(10)             DEFAULT 1 NOT NULL COMMENT '所属页',
     widget_type smallint(6)         DEFAULT 1 NOT NULL COMMENT '控件类型',
@@ -96,7 +95,6 @@ CREATE TABLE form_question (
     form_id     bigint(20)                    NOT NULL COMMENT '表单ID',
     title       varchar(255)                  NOT NULL COMMENT '标题',
     description varchar(500)        DEFAULT NULL COMMENT '描述',
-    status      smallint(6)         DEFAULT 1 NOT NULL COMMENT '状态：1-新建 2-启用 3-禁用',
     `order`     int(10)                       NOT NULL COMMENT '排序',
     page_number int(10)             DEFAULT 1 NOT NULL COMMENT '所属页',
     widget_type smallint(6)         DEFAULT 1 NOT NULL COMMENT '控件类型',
@@ -125,17 +123,19 @@ CREATE TABLE user_form (
 DROP TABLE IF EXISTS user_form_answer;
 
 CREATE TABLE user_form_answer (
-    id          bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-    create_time datetime            DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '创建时间',
-    update_time datetime            DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    creator_id  bigint(20)                    NOT NULL COMMENT '创建人ID',
-    modifier_id bigint(20)          DEFAULT NULL COMMENT '修改人ID',
-    is_deleted  tinyint(2)          DEFAULT 0 NOT NULL COMMENT '是否已删除：0-未删除 1-已删除',
+    id           bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    create_time  datetime            DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '创建时间',
+    update_time  datetime            DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    creator_id   bigint(20)                    NOT NULL COMMENT '创建人ID',
+    modifier_id  bigint(20)          DEFAULT NULL COMMENT '修改人ID',
+    is_deleted   tinyint(2)          DEFAULT 0 NOT NULL COMMENT '是否已删除：0-未删除 1-已删除',
     user_id      bigint(20)                   NOT NULL COMMENT '用户ID',
     user_form_id bigint(20)                   NOT NULL COMMENT '用户表单ID',
+    question_id  bigint(20)                   NOT NULL COMMENT '表单问题ID',
     widget_type  smallint(6)        DEFAULT 1 NOT NULL COMMENT '控件类型',
-    answer       text                         NOT NULL COMMENT '用户表单问题答案',
+    value        text                         NOT NULL COMMENT '用户表单问题答案',
     PRIMARY KEY (id),
     KEY idx_user_id(user_id),
-    KEY idx_user_form_id(user_form_id)
+    KEY idx_user_form_id(user_form_id),
+    KEY idx_question_id(question_id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '用户表单答案';

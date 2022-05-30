@@ -14,10 +14,33 @@
       "id": 3,
       "values": [
         {
-          "value": "Jack"
+          "order": 1,
+          "value": null
         },
         {
+          "order": 2,
           "value": "12"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "value": "男"
+    },
+    {
+      "id": 5,
+      "values": [
+        {
+          "order": 1,
+          "value": "A"
+        },
+        {
+          "order": 2,
+          "value": "B"
+        },
+        {
+          "order": 2,
+          "value": "C"
         }
       ]
     }

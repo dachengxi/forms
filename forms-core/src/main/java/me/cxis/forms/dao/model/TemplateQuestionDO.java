@@ -21,8 +21,6 @@ public class TemplateQuestionDO {
 
     private String description;
 
-    private Short status;
-
     private Integer order;
 
     private Integer pageNumber;
@@ -101,14 +99,6 @@ public class TemplateQuestionDO {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Short getStatus() {
-        return status;
-    }
-
-    public void setStatus(Short status) {
-        this.status = status;
     }
 
     public Integer getOrder() {

@@ -7,14 +7,12 @@
   "status": 1,
   "totalPage": 2,
   "mode": 1,
-  "currentPage": 1,
   "questions": [
     {
       "id": 1,
       "templateId": 123456,
       "title": "单行文本标题",
       "description": "描述",
-      "status": 1,
       "order": 1,
       "pageNumber": 1,
       "widgetType": 1,
@@ -24,7 +22,10 @@
         "required": true,
         "min": 3,
         "max": 10,
-        "direction": null
+        "direction": null,
+        "value": null,
+        "defaultValue": "Your Name",
+        "placeholder": "Please input your name"
       }
     },
     {
@@ -32,8 +33,7 @@
       "templateId": 123456,
       "title": "多行文本标题",
       "description": "描述",
-      "status": 1,
-      "order": 1,
+      "order": 2,
       "pageNumber": 1,
       "widgetType": 2,
       "widgetRule": {
@@ -42,7 +42,10 @@
         "required": true,
         "min": 3,
         "max": 10,
-        "direction": null
+        "direction": null,
+        "value": null,
+        "defaultValue": "Information",
+        "placeholder": "Please input your personal information"
       }
     },
     {
@@ -50,10 +53,9 @@
       "templateId": 123456,
       "title": "多项单行文本标题",
       "description": "描述",
-      "status": 1,
-      "order": 1,
+      "order": 3,
       "pageNumber": 1,
-      "widgetType": 2,
+      "widgetType": 3,
       "widgetRule": {
         "direction": "horizontal/vertical",
         "items": [
@@ -62,14 +64,87 @@
             "tailTitle": "（或者昵称）",
             "required": true,
             "min": 3,
-            "max": 10
+            "max": 10,
+            "order": 1,
+            "value": null,
+            "defaultValue": "Your Name",
+            "placeholder": "Please input your name"
           },
           {
             "headTitle": "年龄",
             "tailTitle": "岁",
             "required": true,
             "min": 3,
-            "max": 10
+            "max": 10,
+            "order": 2,
+            "value": null,
+            "defaultValue": "0",
+            "placeholder": "Please input your age"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "templateId": 123456,
+      "title": "单选",
+      "description": "描述",
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 4,
+      "widgetRule": {
+        "direction": "horizontal/vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": "男",
+            "tailTitle": "M",
+            "value": "男",
+            "order": 1,
+            "defaultSelected": true
+          },
+          {
+            "headTitle": "女",
+            "tailTitle": "F",
+            "value": "女",
+            "order": 2,
+            "defaultSelected": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "templateId": 123456,
+      "title": "多选",
+      "description": "描述",
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 5,
+      "widgetRule": {
+        "direction": "horizontal/vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": "A",
+            "tailTitle": "a",
+            "value": "A",
+            "order": 1,
+            "defaultSelected": true
+          },
+          {
+            "headTitle": "B",
+            "tailTitle": "b",
+            "value": "B",
+            "order": 2,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": "C",
+            "tailTitle": "c",
+            "value": "C",
+            "order": 3,
+            "defaultSelected": true
           }
         ]
       }

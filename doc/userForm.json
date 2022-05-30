@@ -1,6 +1,6 @@
 {
-  "userFormId": 1,
-  "userFormStatus": 1,
+  "id": 1,
+  "status": 1,
   "formId": 123456,
   "formCode": "code",
   "formVersion": 1,
@@ -13,7 +13,7 @@
   "questions": [
     {
       "id": 1,
-      "templateId": 123456,
+      "formId": 123456,
       "title": "单行文本标题",
       "description": "描述",
       "status": 1,
@@ -26,16 +26,15 @@
         "required": true,
         "min": 3,
         "max": 10,
-        "direction": null
-      },
-      "value": "Jack",
-      "defaultValue": "Your Name",
-      "placeholder": "Please input your name",
-      "answerId": 1
+        "direction": null,
+        "value": null,
+        "defaultValue": "Your Name",
+        "placeholder": "Please input your name"
+      }
     },
     {
       "id": 2,
-      "templateId": 123456,
+      "formId": 123456,
       "title": "多行文本标题",
       "description": "描述",
       "status": 1,
@@ -48,16 +47,15 @@
         "required": true,
         "min": 3,
         "max": 10,
-        "direction": null
-      },
-      "value": "Jack\nMan",
-      "defaultValue": "Information",
-      "placeholder": "Please input your personal information",
-      "answerId": 2
+        "direction": null,
+        "value": null,
+        "defaultValue": "Information",
+        "placeholder": "Please input your personal information"
+      }
     },
     {
       "id": 3,
-      "templateId": 123456,
+      "formId": 123456,
       "title": "多项单行文本标题",
       "description": "描述",
       "status": 1,
@@ -72,30 +70,139 @@
             "tailTitle": "（或者昵称）",
             "required": true,
             "min": 3,
-            "max": 10
+            "max": 10,
+            "order": 1,
+            "value": false,
+            "defaultValue": "Your Name",
+            "placeholder": "Please input your name"
           },
           {
             "headTitle": "年龄",
             "tailTitle": "岁",
             "required": true,
             "min": 3,
-            "max": 10
+            "max": 10,
+            "order": 2,
+            "value": null,
+            "defaultValue": "0",
+            "placeholder": "Please input your age"
           }
         ]
-      },
+      }
+    },
+    {
+      "id": 4,
+      "formId": 123456,
+      "title": "单选",
+      "description": "描述",
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 4,
+      "widgetRule": {
+        "direction": "horizontal/vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": "男",
+            "tailTitle": "M",
+            "value": "男",
+            "order": 1,
+            "defaultSelected": true
+          },
+          {
+            "headTitle": "女",
+            "tailTitle": "F",
+            "value": "女",
+            "order": 2,
+            "defaultSelected": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "formId": 123456,
+      "title": "多选",
+      "description": "描述",
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 5,
+      "widgetRule": {
+        "direction": "horizontal/vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": "A",
+            "tailTitle": "a",
+            "value": "A",
+            "order": 1,
+            "defaultSelected": true
+          },
+          {
+            "headTitle": "B",
+            "tailTitle": "b",
+            "value": "B",
+            "order": 2,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": "C",
+            "tailTitle": "c",
+            "value": "C",
+            "order": 3,
+            "defaultSelected": true
+          }
+        ]
+      }
+    }
+  ],
+  "answers": [
+    {
+      "value": "Jack",
+      "id": 1,
+      "questionId": 1
+    },
+    {
+      "value": "Jack\nMan",
+      "id": 2,
+      "questionId": 2
+    },
+    {
+      "id": 3,
       "values": [
         {
-          "value": "Jack",
-          "defaultValue": "Your Name",
-          "placeholder": "Please input your name"
+          "order": 1,
+          "value": null
         },
         {
-          "value": "12",
-          "defaultValue": "0",
-          "placeholder": "Please input your age"
+          "order": 2,
+          "value": "39"
         }
       ],
-      "answerId": 3
+      "questionId": 3
+    },
+    {
+      "value": "男",
+      "id": 4,
+      "questionId": 4
+    },
+    {
+      "id": 5,
+      "values": [
+        {
+          "order": 1,
+          "value": null
+        },
+        {
+          "order": 2,
+          "value": "B"
+        },
+        {
+          "order": 3,
+          "value": "C"
+        }
+      ],
+      "questionId": 3
     }
   ]
 }
