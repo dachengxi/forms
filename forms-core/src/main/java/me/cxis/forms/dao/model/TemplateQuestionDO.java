@@ -13,7 +13,7 @@ public class TemplateQuestionDO {
 
     private Long modifierId;
 
-    private Byte isDeleted;
+    private Boolean isDeleted;
 
     private Long templateId;
 
@@ -25,7 +25,7 @@ public class TemplateQuestionDO {
 
     private Integer pageNumber;
 
-    private Short widgetType;
+    private Integer widgetType;
 
     private String widgetRule;
 
@@ -69,11 +69,11 @@ public class TemplateQuestionDO {
         this.modifierId = modifierId;
     }
 
-    public Byte getIsDeleted() {
+    public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(Byte isDeleted) {
+    public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -117,11 +117,11 @@ public class TemplateQuestionDO {
         this.pageNumber = pageNumber;
     }
 
-    public Short getWidgetType() {
+    public Integer getWidgetType() {
         return widgetType;
     }
 
-    public void setWidgetType(Short widgetType) {
+    public void setWidgetType(Integer widgetType) {
         this.widgetType = widgetType;
     }
 

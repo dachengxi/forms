@@ -29,7 +29,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="me.cxis.forms.dao.mapper" targetProject="src/main/java">
         </javaClientGenerator>
 
-        <table catalog="forms" tableName="template" domainObjectName="TemplateDO"
+        <!--<table catalog="forms" tableName="template" domainObjectName="TemplateDO"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="ignoreQualifiersAtRuntime" value="true"/>
@@ -69,7 +69,7 @@
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="ignoreQualifiersAtRuntime" value="true"/>
-        </table>
+        </table>-->
 
     </context>
 </generatorConfiguration>

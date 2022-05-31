@@ -1,0 +1,160 @@
+{
+  "id": null,
+  "code": null,
+  "type": 1,
+  "title": "分页模式表单模板",
+  "description": "分页模式表单模板，按页进行填写，每页有若干题目",
+  "status": null,
+  "totalPage": 2,
+  "mode": 1,
+  "questions": [
+    {
+      "id": null,
+      "templateId": null,
+      "title": "请输入姓名",
+      "description": "姓名需要输入全称",
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 1,
+      "widgetRule": {
+        "headTitle": "姓名",
+        "tailTitle": null,
+        "required": true,
+        "min": 3,
+        "max": 10,
+        "direction": null,
+        "value": null,
+        "defaultValue": null,
+        "placeholder": "请输入您的姓名"
+      }
+    },
+    {
+      "id": null,
+      "templateId": null,
+      "title": "请输入您的需求",
+      "description": "请详细描述你想要什么，越详细越好",
+      "order": 2,
+      "pageNumber": 1,
+      "widgetType": 2,
+      "widgetRule": {
+        "headTitle": "需求内容",
+        "tailTitle": null,
+        "required": true,
+        "min": 3,
+        "max": 100,
+        "direction": null,
+        "value": null,
+        "defaultValue": null,
+        "placeholder": "这里输入你的需求"
+      }
+    },
+    {
+      "id": null,
+      "templateId": null,
+      "title": "请输入离你最近的两条路的名字",
+      "description": null,
+      "order": 3,
+      "pageNumber": 2,
+      "widgetType": 3,
+      "widgetRule": {
+        "direction": "horizontal",
+        "items": [
+          {
+            "headTitle": "路1",
+            "tailTitle": null,
+            "required": true,
+            "min": 3,
+            "max": 10,
+            "order": 1,
+            "value": null,
+            "defaultValue": null,
+            "placeholder": null
+          },
+          {
+            "headTitle": "路2",
+            "tailTitle": null,
+            "required": true,
+            "min": 3,
+            "max": 10,
+            "order": 2,
+            "value": null,
+            "defaultValue": null,
+            "placeholder": null
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "templateId": null,
+      "title": "选择一个出行方式",
+      "description": "之选择最经常使用的出行方式即可",
+      "order": 4,
+      "pageNumber": 3,
+      "widgetType": 4,
+      "widgetRule": {
+        "direction": "vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": "步行",
+            "tailTitle": null,
+            "value": "walk",
+            "order": 1,
+            "defaultSelected": true
+          },
+          {
+            "headTitle": "公交",
+            "tailTitle": null,
+            "value": "bus",
+            "order": 2,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": "自行车",
+            "tailTitle": null,
+            "value": "bike",
+            "order": 3,
+            "defaultSelected": false
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "templateId": null,
+      "title": "喜欢吃的东西",
+      "description": "可以选择你喜欢吃的东西",
+      "order": 5,
+      "pageNumber": 4,
+      "widgetType": 5,
+      "widgetRule": {
+        "direction": "vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": "苹果",
+            "tailTitle": null,
+            "value": "apple",
+            "order": 1,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": "香蕉",
+            "tailTitle": null,
+            "value": "banana",
+            "order": 2,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": "橘子",
+            "tailTitle": null,
+            "value": "orange",
+            "order": 3,
+            "defaultSelected": true
+          }
+        ]
+      }
+    }
+  ]
+}

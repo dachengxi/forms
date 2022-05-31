@@ -5,19 +5,19 @@ import java.util.List;
 
 public class UserFormAnswerVO implements Serializable {
 
-    private int id;
+    private Long id;
 
     private String value;
 
-    private int questionId;
+    private Long questionId;
 
     private List<ValuesVO> values;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -29,11 +29,11 @@ public class UserFormAnswerVO implements Serializable {
         this.value = value;
     }
 
-    public int getQuestionId() {
+    public Long getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
+    public void setQuestionId(Long questionId) {
         this.questionId = questionId;
     }
 
@@ -56,14 +56,14 @@ public class UserFormAnswerVO implements Serializable {
     }
 
     public static class ValuesVO {
-        private int order;
+        private Integer order;
         private String value;
 
-        public int getOrder() {
+        public Integer getOrder() {
             return order;
         }
 
-        public void setOrder(int order) {
+        public void setOrder(Integer order) {
             this.order = order;
         }
 

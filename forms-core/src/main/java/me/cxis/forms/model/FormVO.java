@@ -4,41 +4,41 @@ import java.io.Serializable;
 import java.util.List;
 
 public class FormVO implements Serializable {
-    private int id;
+    private Long id;
 
-    private int templateId;
+    private Long templateId;
 
     private String code;
 
-    private int version;
+    private Integer version;
 
-    private int type;
+    private Integer type;
 
     private String title;
 
     private String description;
 
-    private int status;
+    private Integer status;
 
-    private int totalPage;
+    private Integer totalPage;
 
-    private int mode;
+    private Integer mode;
 
     private List<FormQuestionVO> questions;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getTemplateId() {
+    public Long getTemplateId() {
         return templateId;
     }
 
-    public void setTemplateId(int templateId) {
+    public void setTemplateId(Long templateId) {
         this.templateId = templateId;
     }
 
@@ -50,19 +50,19 @@ public class FormVO implements Serializable {
         this.code = code;
     }
 
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -82,27 +82,27 @@ public class FormVO implements Serializable {
         this.description = description;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public int getTotalPage() {
+    public Integer getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(int totalPage) {
+    public void setTotalPage(Integer totalPage) {
         this.totalPage = totalPage;
     }
 
-    public int getMode() {
+    public Integer getMode() {
         return mode;
     }
 
-    public void setMode(int mode) {
+    public void setMode(Integer mode) {
         this.mode = mode;
     }
 

@@ -4,53 +4,53 @@ import java.util.List;
 
 public class UserFormVO {
 
-    private int id;
+    private Long id;
 
-    private int status;
+    private Integer status;
 
-    private int formId;
+    private Long formId;
 
     private String formCode;
 
-    private int formVersion;
+    private Integer formVersion;
 
-    private int formType;
+    private Integer formType;
 
     private String formTitle;
 
     private String formDescription;
 
-    private int totalPage;
+    private Integer totalPage;
 
-    private int formMode;
+    private Integer formMode;
 
-    private int currentPage;
+    private Integer currentPage;
 
     private List<FormQuestionVO> questions;
 
     private List<UserFormAnswerVO> answers;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public int getFormId() {
+    public Long getFormId() {
         return formId;
     }
 
-    public void setFormId(int formId) {
+    public void setFormId(Long formId) {
         this.formId = formId;
     }
 
@@ -62,19 +62,19 @@ public class UserFormVO {
         this.formCode = formCode;
     }
 
-    public int getFormVersion() {
+    public Integer getFormVersion() {
         return formVersion;
     }
 
-    public void setFormVersion(int formVersion) {
+    public void setFormVersion(Integer formVersion) {
         this.formVersion = formVersion;
     }
 
-    public int getFormType() {
+    public Integer getFormType() {
         return formType;
     }
 
-    public void setFormType(int formType) {
+    public void setFormType(Integer formType) {
         this.formType = formType;
     }
 
@@ -94,27 +94,27 @@ public class UserFormVO {
         this.formDescription = formDescription;
     }
 
-    public int getTotalPage() {
+    public Integer getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(int totalPage) {
+    public void setTotalPage(Integer totalPage) {
         this.totalPage = totalPage;
     }
 
-    public int getFormMode() {
+    public Integer getFormMode() {
         return formMode;
     }
 
-    public void setFormMode(int formMode) {
+    public void setFormMode(Integer formMode) {
         this.formMode = formMode;
     }
 
-    public int getCurrentPage() {
+    public Integer getCurrentPage() {
         return currentPage;
     }
 
-    public void setCurrentPage(int currentPage) {
+    public void setCurrentPage(Integer currentPage) {
         this.currentPage = currentPage;
     }
 

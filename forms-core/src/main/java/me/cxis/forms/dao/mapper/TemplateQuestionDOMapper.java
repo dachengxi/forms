@@ -2,6 +2,8 @@ package me.cxis.forms.dao.mapper;
 
 import me.cxis.forms.dao.model.TemplateQuestionDO;
 
+import java.util.List;
+
 public interface TemplateQuestionDOMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -16,4 +18,6 @@ public interface TemplateQuestionDOMapper {
     int updateByPrimaryKeyWithBLOBs(TemplateQuestionDO row);
 
     int updateByPrimaryKey(TemplateQuestionDO row);
+
+    void insertBatch(List<TemplateQuestionDO> questions);
 }

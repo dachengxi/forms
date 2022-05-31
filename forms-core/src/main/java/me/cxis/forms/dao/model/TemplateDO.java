@@ -13,21 +13,21 @@ public class TemplateDO {
 
     private Long modifierId;
 
-    private Byte isDeleted;
+    private Boolean isDeleted;
 
     private String code;
 
-    private Short type;
+    private Integer type;
 
     private String title;
 
     private String description;
 
-    private Short status;
+    private Integer status;
 
     private Long totalPage;
 
-    private Short mode;
+    private Integer mode;
 
     public Long getId() {
         return id;
@@ -69,11 +69,11 @@ public class TemplateDO {
         this.modifierId = modifierId;
     }
 
-    public Byte getIsDeleted() {
+    public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(Byte isDeleted) {
+    public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -85,11 +85,11 @@ public class TemplateDO {
         this.code = code;
     }
 
-    public Short getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Short type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -109,11 +109,11 @@ public class TemplateDO {
         this.description = description;
     }
 
-    public Short getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Short status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -125,11 +125,11 @@ public class TemplateDO {
         this.totalPage = totalPage;
     }
 
-    public Short getMode() {
+    public Integer getMode() {
         return mode;
     }
 
-    public void setMode(Short mode) {
+    public void setMode(Integer mode) {
         this.mode = mode;
     }
 }

@@ -9,11 +9,11 @@ public class WidgetRuleVO implements Serializable {
 
     private String tailTitle;
 
-    private boolean required;
+    private Boolean required;
 
-    private int min;
+    private Integer min;
 
-    private int max;
+    private Integer max;
 
     private String direction;
 
@@ -23,9 +23,9 @@ public class WidgetRuleVO implements Serializable {
 
     private String placeholder;
 
-    private int order;
+    private Integer order;
 
-    private boolean defaultSelected;
+    private Boolean defaultSelected;
 
     private List<WidgetRuleVO> items;
 
@@ -45,27 +45,27 @@ public class WidgetRuleVO implements Serializable {
         this.tailTitle = tailTitle;
     }
 
-    public boolean isRequired() {
+    public Boolean getRequired() {
         return required;
     }
 
-    public void setRequired(boolean required) {
+    public void setRequired(Boolean required) {
         this.required = required;
     }
 
-    public int getMin() {
+    public Integer getMin() {
         return min;
     }
 
-    public void setMin(int min) {
+    public void setMin(Integer min) {
         this.min = min;
     }
 
-    public int getMax() {
+    public Integer getMax() {
         return max;
     }
 
-    public void setMax(int max) {
+    public void setMax(Integer max) {
         this.max = max;
     }
 
@@ -101,19 +101,19 @@ public class WidgetRuleVO implements Serializable {
         this.placeholder = placeholder;
     }
 
-    public int getOrder() {
+    public Integer getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 
-    public boolean isDefaultSelected() {
+    public Boolean getDefaultSelected() {
         return defaultSelected;
     }
 
-    public void setDefaultSelected(boolean defaultSelected) {
+    public void setDefaultSelected(Boolean defaultSelected) {
         this.defaultSelected = defaultSelected;
     }
 

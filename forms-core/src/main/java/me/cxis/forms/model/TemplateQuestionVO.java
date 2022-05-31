@@ -4,37 +4,37 @@ import java.io.Serializable;
 
 public class TemplateQuestionVO implements Serializable {
 
-    private int id;
+    private Long id;
 
-    private int templateId;
+    private Long templateId;
 
     private String title;
 
     private String description;
 
-    private int status;
+    private Integer status;
 
-    private int order;
+    private Integer order;
 
-    private int pageNumber;
+    private Integer pageNumber;
 
-    private int widgetType;
+    private Integer widgetType;
 
     private WidgetRuleVO widgetRule;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getTemplateId() {
+    public Long getTemplateId() {
         return templateId;
     }
 
-    public void setTemplateId(int templateId) {
+    public void setTemplateId(Long templateId) {
         this.templateId = templateId;
     }
 
@@ -54,35 +54,35 @@ public class TemplateQuestionVO implements Serializable {
         this.description = description;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public int getOrder() {
+    public Integer getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 
-    public int getPageNumber() {
+    public Integer getPageNumber() {
         return pageNumber;
     }
 
-    public void setPageNumber(int pageNumber) {
+    public void setPageNumber(Integer pageNumber) {
         this.pageNumber = pageNumber;
     }
 
-    public int getWidgetType() {
+    public Integer getWidgetType() {
         return widgetType;
     }
 
-    public void setWidgetType(int widgetType) {
+    public void setWidgetType(Integer widgetType) {
         this.widgetType = widgetType;
     }
 

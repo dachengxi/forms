@@ -5,32 +5,32 @@ import java.util.List;
 
 public class TemplateVO implements Serializable {
 
-    private int id;
+    private Long id;
 
     private String code;
 
-    private int type;
+    private Integer type;
 
     private String title;
 
     private String description;
 
-    private int status;
+    private Integer status;
 
-    private int totalPage;
+    private Long totalPage;
 
     /**
      * 模式：1-分页模式 2-一题一页 3-一页
      */
-    private int mode;
+    private Integer mode;
 
     private List<TemplateQuestionVO> questions;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,11 +42,11 @@ public class TemplateVO implements Serializable {
         this.code = code;
     }
 
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -66,27 +66,27 @@ public class TemplateVO implements Serializable {
         this.description = description;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public int getTotalPage() {
+    public Long getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(int totalPage) {
+    public void setTotalPage(Long totalPage) {
         this.totalPage = totalPage;
     }
 
-    public int getMode() {
+    public Integer getMode() {
         return mode;
     }
 
-    public void setMode(int mode) {
+    public void setMode(Integer mode) {
         this.mode = mode;
     }
 
