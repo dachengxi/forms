@@ -10,7 +10,7 @@ public class FormVO implements Serializable {
 
     private String code;
 
-    private Integer version;
+    private Long version;
 
     private Integer type;
 
@@ -20,7 +20,7 @@ public class FormVO implements Serializable {
 
     private Integer status;
 
-    private Integer totalPage;
+    private Long totalPage;
 
     private Integer mode;
 
@@ -50,11 +50,11 @@ public class FormVO implements Serializable {
         this.code = code;
     }
 
-    public Integer getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(Integer version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 
@@ -90,11 +90,11 @@ public class FormVO implements Serializable {
         this.status = status;
     }
 
-    public Integer getTotalPage() {
+    public Long getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(Integer totalPage) {
+    public void setTotalPage(Long totalPage) {
         this.totalPage = totalPage;
     }
 

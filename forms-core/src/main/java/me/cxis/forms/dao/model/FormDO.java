@@ -13,7 +13,7 @@ public class FormDO {
 
     private Long modifierId;
 
-    private Byte isDeleted;
+    private Boolean isDeleted;
 
     private Long templateId;
 
@@ -21,17 +21,17 @@ public class FormDO {
 
     private Long version;
 
-    private Short type;
+    private Integer type;
 
     private String title;
 
     private String description;
 
-    private Short status;
+    private Integer status;
 
     private Long totalPage;
 
-    private Short mode;
+    private Integer mode;
 
     public Long getId() {
         return id;
@@ -73,11 +73,11 @@ public class FormDO {
         this.modifierId = modifierId;
     }
 
-    public Byte getIsDeleted() {
+    public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(Byte isDeleted) {
+    public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -105,11 +105,11 @@ public class FormDO {
         this.version = version;
     }
 
-    public Short getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Short type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -129,11 +129,11 @@ public class FormDO {
         this.description = description;
     }
 
-    public Short getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Short status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -145,11 +145,11 @@ public class FormDO {
         this.totalPage = totalPage;
     }
 
-    public Short getMode() {
+    public Integer getMode() {
         return mode;
     }
 
-    public void setMode(Short mode) {
+    public void setMode(Integer mode) {
         this.mode = mode;
     }
 }

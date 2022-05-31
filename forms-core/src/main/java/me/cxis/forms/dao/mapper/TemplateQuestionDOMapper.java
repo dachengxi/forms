@@ -15,8 +15,6 @@ public interface TemplateQuestionDOMapper {
 
     int updateByPrimaryKeySelective(TemplateQuestionDO row);
 
-    int updateByPrimaryKeyWithBLOBs(TemplateQuestionDO row);
-
     int updateByPrimaryKey(TemplateQuestionDO row);
 
     void insertBatch(List<TemplateQuestionDO> questions);
