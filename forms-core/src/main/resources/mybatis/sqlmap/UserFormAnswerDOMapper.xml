@@ -181,4 +181,29 @@
       question_id = #{questionId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByUserFormId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user_form_answer
+    where user_form_id = #{userFormId,jdbcType=BIGINT}
+    and is_deleted = 0
+  </select>
+
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into user_form_answer (
+    id, create_time, update_time,
+    creator_id, modifier_id, is_deleted,
+    user_id, user_form_id, widget_type,
+    question_id, value
+    ) values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (
+      #{item.id,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+      #{item.creatorId,jdbcType=BIGINT}, #{item.modifierId,jdbcType=BIGINT}, #{item.isDeleted,jdbcType=TINYINT},
+      #{item.userId,jdbcType=BIGINT}, #{item.userFormId,jdbcType=BIGINT}, #{item.widgetType,jdbcType=SMALLINT},
+      #{item.questionId,jdbcType=BIGINT}, #{item.value,jdbcType=LONGVARCHAR}
+      )
+    </foreach>
+  </insert>
 </mapper>

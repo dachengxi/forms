@@ -21,7 +21,7 @@
     id, create_time, update_time,
     creator_id, modifier_id, is_deleted,
     form_id, title, description,
-    order, page_number, widget_type,
+    `order`, page_number, widget_type,
     widget_rule
   </sql>
 
@@ -216,4 +216,12 @@
       )
     </foreach>
   </insert>
+
+  <select id="selectByFormId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from form_question
+    where form_id = #{formId,jdbcType=BIGINT}
+    and is_deleted = 0
+  </select>
 </mapper>

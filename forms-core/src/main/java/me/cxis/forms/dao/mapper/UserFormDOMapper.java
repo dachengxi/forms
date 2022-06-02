@@ -1,6 +1,7 @@
 package me.cxis.forms.dao.mapper;
 
 import me.cxis.forms.dao.model.UserFormDO;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserFormDOMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +15,6 @@ public interface UserFormDOMapper {
     int updateByPrimaryKeySelective(UserFormDO row);
 
     int updateByPrimaryKey(UserFormDO row);
+
+    UserFormDO selectUserForm(@Param("userId") Long userId, @Param("formId") Long formId);
 }

@@ -24,4 +24,8 @@ public class FormQuestionDao {
 
         formQuestionDOMapper.insertBatch(questions);
     }
+
+    public List<FormQuestionDO> selectByFormId(Long formId) {
+        return formQuestionDOMapper.selectByFormId(formId);
+    }
 }

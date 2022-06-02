@@ -26,7 +26,7 @@
     delete from user_form
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="me.cxis.forms.dao.model.UserFormDO">
+  <insert id="insert" parameterType="me.cxis.forms.dao.model.UserFormDO" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
     insert into user_form (id, create_time, update_time, 
       creator_id, modifier_id, is_deleted, 
       user_id, form_id, status
@@ -139,4 +139,13 @@
       status = #{status,jdbcType=SMALLINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectUserForm" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user_form
+    where user_id = #{userId,jdbcType=BIGINT}
+      and form_id = #{formId,jdbcType=BIGINT}
+    and is_deleted = 0
+  </select>
 </mapper>

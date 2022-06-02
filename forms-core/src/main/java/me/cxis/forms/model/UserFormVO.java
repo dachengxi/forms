@@ -8,11 +8,13 @@ public class UserFormVO {
 
     private Integer status;
 
+    private Long userId;
+
     private Long formId;
 
     private String formCode;
 
-    private Integer formVersion;
+    private Long formVersion;
 
     private Integer formType;
 
@@ -20,7 +22,7 @@ public class UserFormVO {
 
     private String formDescription;
 
-    private Integer totalPage;
+    private Long totalPage;
 
     private Integer formMode;
 
@@ -46,6 +48,14 @@ public class UserFormVO {
         this.status = status;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     public Long getFormId() {
         return formId;
     }
@@ -62,11 +72,11 @@ public class UserFormVO {
         this.formCode = formCode;
     }
 
-    public Integer getFormVersion() {
+    public Long getFormVersion() {
         return formVersion;
     }
 
-    public void setFormVersion(Integer formVersion) {
+    public void setFormVersion(Long formVersion) {
         this.formVersion = formVersion;
     }
 
@@ -94,11 +104,11 @@ public class UserFormVO {
         this.formDescription = formDescription;
     }
 
-    public Integer getTotalPage() {
+    public Long getTotalPage() {
         return totalPage;
     }
 
-    public void setTotalPage(Integer totalPage) {
+    public void setTotalPage(Long totalPage) {
         this.totalPage = totalPage;
     }
 
@@ -139,6 +149,7 @@ public class UserFormVO {
         return "UserFormVO{" +
                 "id=" + id +
                 ", status=" + status +
+                ", userId=" + userId +
                 ", formId=" + formId +
                 ", formCode='" + formCode + '\'' +
                 ", formVersion=" + formVersion +

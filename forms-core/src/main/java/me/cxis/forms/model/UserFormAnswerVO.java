@@ -7,9 +7,15 @@ public class UserFormAnswerVO implements Serializable {
 
     private Long id;
 
-    private String value;
+    private Long userId;
+
+    private Long userFormId;
 
     private Long questionId;
+
+    private Integer widgetType;
+
+    private String value;
 
     private List<ValuesVO> values;
 
@@ -19,6 +25,30 @@ public class UserFormAnswerVO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getUserFormId() {
+        return userFormId;
+    }
+
+    public void setUserFormId(Long userFormId) {
+        this.userFormId = userFormId;
+    }
+
+    public Integer getWidgetType() {
+        return widgetType;
+    }
+
+    public void setWidgetType(Integer widgetType) {
+        this.widgetType = widgetType;
     }
 
     public String getValue() {
@@ -49,14 +79,18 @@ public class UserFormAnswerVO implements Serializable {
     public String toString() {
         return "UserFormAnswerVO{" +
                 "id=" + id +
-                ", value='" + value + '\'' +
+                ", userId=" + userId +
+                ", userFormId=" + userFormId +
                 ", questionId=" + questionId +
+                ", widgetType=" + widgetType +
+                ", value='" + value + '\'' +
                 ", values=" + values +
                 '}';
     }
 
     public static class ValuesVO {
         private Integer order;
+
         private String value;
 
         public Integer getOrder() {

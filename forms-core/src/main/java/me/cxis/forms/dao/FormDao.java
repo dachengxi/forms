@@ -20,4 +20,8 @@ public class FormDao {
         formDOMapper.insert(formDO);
         return formDO.getId();
     }
+
+    public FormDO selectById(Long id) {
+        return formDOMapper.selectByPrimaryKey(id);
+    }
 }

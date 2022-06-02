@@ -13,13 +13,13 @@ public class UserFormDO {
 
     private Long modifierId;
 
-    private Byte isDeleted;
+    private Boolean isDeleted;
 
     private Long userId;
 
     private Long formId;
 
-    private Short status;
+    private Integer status;
 
     public Long getId() {
         return id;
@@ -61,11 +61,11 @@ public class UserFormDO {
         this.modifierId = modifierId;
     }
 
-    public Byte getIsDeleted() {
+    public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(Byte isDeleted) {
+    public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -85,11 +85,11 @@ public class UserFormDO {
         this.formId = formId;
     }
 
-    public Short getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Short status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

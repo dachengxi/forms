@@ -18,4 +18,6 @@ public interface FormQuestionDOMapper {
     int updateByPrimaryKey(FormQuestionDO row);
 
     void insertBatch(List<FormQuestionDO> questions);
+
+    List<FormQuestionDO> selectByFormId(Long formId);
 }

@@ -2,11 +2,13 @@ package me.cxis.forms.service;
 
 import me.cxis.forms.manager.FormManager;
 import me.cxis.forms.manager.FormQuestionManager;
+import me.cxis.forms.model.FormQuestionVO;
 import me.cxis.forms.model.FormVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class FormService {
@@ -40,5 +42,15 @@ public class FormService {
 
     public Long update(FormVO form) {
         return null;
+    }
+
+    public FormVO queryById(Long formId) {
+        // 查询表单
+        FormVO form = formManager.queryById(formId);
+
+        // 查询表单问题
+        List<FormQuestionVO> questions = formQuestionManager.queryByFormId(formId);
+        form.setQuestions(questions);
+        return form;
     }
 }

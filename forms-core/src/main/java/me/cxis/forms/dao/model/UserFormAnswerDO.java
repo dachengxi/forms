@@ -3,6 +3,7 @@ package me.cxis.forms.dao.model;
 import java.time.LocalDateTime;
 
 public class UserFormAnswerDO {
+
     private Long id;
 
     private LocalDateTime createTime;
@@ -13,13 +14,13 @@ public class UserFormAnswerDO {
 
     private Long modifierId;
 
-    private Byte isDeleted;
+    private Boolean isDeleted;
 
     private Long userId;
 
     private Long userFormId;
 
-    private Short widgetType;
+    private Integer widgetType;
 
     private Long questionId;
 
@@ -65,11 +66,11 @@ public class UserFormAnswerDO {
         this.modifierId = modifierId;
     }
 
-    public Byte getIsDeleted() {
+    public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(Byte isDeleted) {
+    public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -89,11 +90,11 @@ public class UserFormAnswerDO {
         this.userFormId = userFormId;
     }
 
-    public Short getWidgetType() {
+    public Integer getWidgetType() {
         return widgetType;
     }
 
-    public void setWidgetType(Short widgetType) {
+    public void setWidgetType(Integer widgetType) {
         this.widgetType = widgetType;
     }
 

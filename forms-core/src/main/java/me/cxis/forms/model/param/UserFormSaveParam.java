@@ -5,49 +5,59 @@ import java.util.List;
 
 public class UserFormSaveParam implements Serializable {
 
-    private int userFormId;
+    private Long userId;
 
-    private int formId;
+    private Long userFormId;
 
-    private List<Questions> questions;
+    private Long formId;
 
-    public int getUserFormId() {
+    private List<UserFormAnswerSaveParam> answers;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getUserFormId() {
         return userFormId;
     }
 
-    public void setUserFormId(int userFormId) {
+    public void setUserFormId(Long userFormId) {
         this.userFormId = userFormId;
     }
 
-    public int getFormId() {
+    public Long getFormId() {
         return formId;
     }
 
-    public void setFormId(int formId) {
+    public void setFormId(Long formId) {
         this.formId = formId;
     }
 
-    public List<Questions> getQuestions() {
-        return questions;
+    public List<UserFormAnswerSaveParam> getAnswers() {
+        return answers;
     }
 
-    public void setQuestions(List<Questions> questions) {
-        this.questions = questions;
+    public void setAnswers(List<UserFormAnswerSaveParam> answers) {
+        this.answers = answers;
     }
 
-    public static class Questions {
-        private int id;
+    public static class UserFormAnswerSaveParam {
+        private Long questionId;
 
         private String value;
 
-        private List<Value> values;
+        private List<ValueParam> values;
 
-        public int getId() {
-            return id;
+        public Long getQuestionId() {
+            return questionId;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setQuestionId(Long questionId) {
+            this.questionId = questionId;
         }
 
         public String getValue() {
@@ -58,15 +68,15 @@ public class UserFormSaveParam implements Serializable {
             this.value = value;
         }
 
-        public List<Value> getValues() {
+        public List<ValueParam> getValues() {
             return values;
         }
 
-        public void setValues(List<Value> values) {
-            this.values = values;
+        public void setValues(List<ValueParam> valueParams) {
+            this.values = valueParams;
         }
 
-        public static class Value {
+        public static class ValueParam {
             private int order;
 
             private String value;
@@ -86,6 +96,33 @@ public class UserFormSaveParam implements Serializable {
             public void setValue(String value) {
                 this.value = value;
             }
+
+            @Override
+            public String toString() {
+                return "ValueParam{" +
+                        "order=" + order +
+                        ", value='" + value + '\'' +
+                        '}';
+            }
         }
+
+        @Override
+        public String toString() {
+            return "UserFormAnswerSaveParam{" +
+                    "questionId=" + questionId +
+                    ", value='" + value + '\'' +
+                    ", values=" + values +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "UserFormSaveParam{" +
+                "userId=" + userId +
+                ", userFormId=" + userFormId +
+                ", formId=" + formId +
+                ", answers=" + answers +
+                '}';
     }
 }
