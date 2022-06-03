@@ -132,21 +132,24 @@
             "tailTitle": "a",
             "value": "A",
             "order": 1,
-            "defaultSelected": true
+            "defaultSelected": true,
+            "exclusive": false
           },
           {
             "headTitle": "B",
             "tailTitle": "b",
             "value": "B",
             "order": 2,
-            "defaultSelected": false
+            "defaultSelected": false,
+            "exclusive": true
           },
           {
             "headTitle": "C",
             "tailTitle": "c",
             "value": "C",
             "order": 3,
-            "defaultSelected": true
+            "defaultSelected": true,
+            "exclusive": true
           }
         ]
       }

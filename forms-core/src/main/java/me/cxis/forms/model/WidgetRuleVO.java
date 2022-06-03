@@ -27,6 +27,8 @@ public class WidgetRuleVO implements Serializable {
 
     private Boolean defaultSelected;
 
+    private Boolean exclusive;
+
     private List<WidgetRuleVO> items;
 
     public String getHeadTitle() {
@@ -117,6 +119,14 @@ public class WidgetRuleVO implements Serializable {
         this.defaultSelected = defaultSelected;
     }
 
+    public Boolean getExclusive() {
+        return exclusive;
+    }
+
+    public void setExclusive(Boolean exclusive) {
+        this.exclusive = exclusive;
+    }
+
     public List<WidgetRuleVO> getItems() {
         return items;
     }
@@ -139,6 +149,7 @@ public class WidgetRuleVO implements Serializable {
                 ", placeholder='" + placeholder + '\'' +
                 ", order=" + order +
                 ", defaultSelected=" + defaultSelected +
+                ", exclusive=" + exclusive +
                 ", items=" + items +
                 '}';
     }

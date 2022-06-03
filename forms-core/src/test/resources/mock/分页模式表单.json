@@ -139,21 +139,24 @@
             "tailTitle": null,
             "value": "apple",
             "order": 1,
-            "defaultSelected": false
+            "defaultSelected": false,
+            "exclusive": false
           },
           {
             "headTitle": "香蕉",
             "tailTitle": null,
             "value": "banana",
             "order": 2,
-            "defaultSelected": false
+            "defaultSelected": false,
+            "exclusive": true
           },
           {
             "headTitle": "橘子",
             "tailTitle": null,
             "value": "orange",
             "order": 3,
-            "defaultSelected": true
+            "defaultSelected": true,
+            "exclusive": true
           }
         ]
       }

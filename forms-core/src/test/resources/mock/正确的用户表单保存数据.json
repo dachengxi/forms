@@ -33,7 +33,7 @@
       "values": [
         {
           "order": 1,
-          "value": "A"
+          "value": ""
         },
         {
           "order": 2,
@@ -41,7 +41,7 @@
         },
         {
           "order": 2,
-          "value": "C"
+          "value": ""
         }
       ]
     }
