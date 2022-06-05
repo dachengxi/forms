@@ -26,7 +26,21 @@
         "value": null,
         "defaultValue": "Your Name",
         "placeholder": "Please input your name"
-      }
+      },
+      "hidden": false,
+      "jumpRule": [
+        {
+          "expressions": [
+            {
+              "expression": "contains",
+              "value": "小明"
+            }
+          ],
+          "jumpTo": [
+            2
+          ]
+        }
+      ]
     },
     {
       "id": 2,
@@ -46,7 +60,8 @@
         "value": null,
         "defaultValue": "Information",
         "placeholder": "Please input your personal information"
-      }
+      },
+      "hidden": true
     },
     {
       "id": 3,
@@ -82,7 +97,30 @@
             "placeholder": "Please input your age"
           }
         ]
-      }
+      },
+      "hidden": false,
+      "jumpRule": [
+        {
+          "expressions": [
+            {
+              "item": 1,
+              "expression": "contains",
+              "value": "小明",
+              "next": "and"
+            },
+            {
+              "item": 2,
+              "expression": "eq",
+              "value": "10",
+              "next": null
+            }
+          ],
+          "jumpTo": [
+            4,
+            5
+          ]
+        }
+      ]
     },
     {
       "id": 4,
@@ -111,7 +149,8 @@
             "defaultSelected": false
           }
         ]
-      }
+      },
+      "hidden": true
     },
     {
       "id": 5,
@@ -152,7 +191,8 @@
             "exclusive": true
           }
         ]
-      }
+      },
+      "hidden": true
     }
   ]
 }
