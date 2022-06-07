@@ -15,14 +15,16 @@
     <result column="page_number" jdbcType="INTEGER" property="pageNumber" />
     <result column="widget_type" jdbcType="SMALLINT" property="widgetType" />
     <result column="widget_rule" jdbcType="LONGVARCHAR" property="widgetRule" />
+    <result column="jump_rule" jdbcType="LONGVARCHAR" property="jumpRule" />
+    <result column="hidden" jdbcType="TINYINT" property="hidden" />
   </resultMap>
 
   <sql id="Base_Column_List">
     id, create_time, update_time,
     creator_id, modifier_id, is_deleted,
     template_id, title, description,
-    order, page_number, widget_type,
-    widget_rule
+    `order`, page_number, widget_type,
+    hidden, widget_rule, jump_rule
   </sql>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -42,14 +44,14 @@
       id, create_time, update_time,
       creator_id, modifier_id, is_deleted, 
       template_id, title, description, 
-      `order`, page_number, widget_type,
-      widget_rule
+      order, page_number, widget_type, 
+      hidden, widget_rule, jump_rule
     ) values (
       #{id,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
       #{creatorId,jdbcType=BIGINT}, #{modifierId,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}, 
       #{templateId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{order,jdbcType=INTEGER}, #{pageNumber,jdbcType=INTEGER}, #{widgetType,jdbcType=SMALLINT}, 
-      #{widgetRule,jdbcType=LONGVARCHAR}
+      #{hidden,jdbcType=TINYINT}, #{widgetRule,jdbcType=LONGVARCHAR}, #{jumpRule,jdbcType=LONGVARCHAR}
     )
   </insert>
 
@@ -92,8 +94,14 @@
       <if test="widgetType != null">
         widget_type,
       </if>
+      <if test="hidden != null">
+        hidden,
+      </if>
       <if test="widgetRule != null">
         widget_rule,
+      </if>
+      <if test="jumpRule != null">
+        jump_rule,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -133,8 +141,14 @@
       <if test="widgetType != null">
         #{widgetType,jdbcType=SMALLINT},
       </if>
+      <if test="hidden != null">
+        #{hidden,jdbcType=TINYINT},
+      </if>
       <if test="widgetRule != null">
         #{widgetRule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jumpRule != null">
+        #{jumpRule,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -175,8 +189,14 @@
       <if test="widgetType != null">
         widget_type = #{widgetType,jdbcType=SMALLINT},
       </if>
+      <if test="hidden != null">
+        hidden = #{hidden,jdbcType=TINYINT},
+      </if>
       <if test="widgetRule != null">
         widget_rule = #{widgetRule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jumpRule != null">
+        jump_rule = #{jumpRule,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -195,7 +215,9 @@
       order = #{order,jdbcType=INTEGER},
       page_number = #{pageNumber,jdbcType=INTEGER},
       widget_type = #{widgetType,jdbcType=SMALLINT},
-      widget_rule = #{widgetRule,jdbcType=LONGVARCHAR}
+      hidden = #{hidden,jdbcType=TINYINT},
+      widget_rule = #{widgetRule,jdbcType=LONGVARCHAR},
+      jump_rule = #{jumpRule,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 
@@ -205,15 +227,15 @@
       creator_id, modifier_id, is_deleted,
       template_id, title, description,
       `order`, page_number, widget_type,
-      widget_rule
+      widget_rule, hidden, jump_rule
     ) values 
-      <foreach collection="list" item="item" index="index" separator=",">
+      <foreach collection="list" index="index" item="item" separator=",">
         (
         #{item.id,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
         #{item.creatorId,jdbcType=BIGINT}, #{item.modifierId,jdbcType=BIGINT}, #{item.isDeleted,jdbcType=TINYINT},
         #{item.templateId,jdbcType=BIGINT}, #{item.title,jdbcType=VARCHAR}, #{item.description,jdbcType=VARCHAR},
         #{item.order,jdbcType=INTEGER}, #{item.pageNumber,jdbcType=INTEGER}, #{item.widgetType,jdbcType=SMALLINT},
-        #{item.widgetRule,jdbcType=LONGVARCHAR}
+        #{item.widgetRule,jdbcType=LONGVARCHAR}, #{item.hidden,jdbcType=TINYINT}, #{item.jumpRule,jdbcType=LONGVARCHAR}
         )
       </foreach>
   </insert>

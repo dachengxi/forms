@@ -18,8 +18,8 @@ class FormAdminControllerIntegrationSpec extends AbstractIntegrationSpec {
     private FormAdminController formAdminController;
 
     def "测试save方法" () {
-        given: "一个分页模式表单"
-        def json = this.getClass().getResource("/mock/分页模式表单.json").text
+        given: "一个单页模式表单"
+        def json = this.getClass().getResource("/mock/单页模式表单.json").text
         def form = JSONObject.parseObject(json, FormVO.class)
 
         when: "调用保存表单方法"

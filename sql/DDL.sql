@@ -56,6 +56,8 @@ CREATE TABLE template_question (
     page_number int(10)             DEFAULT 1 NOT NULL COMMENT '所属页',
     widget_type smallint(6)         DEFAULT 1 NOT NULL COMMENT '控件类型',
     widget_rule text                          NOT NULL COMMENT '控件规则',
+    hidden      tinyint(2)          DEFAULT 0 NOT NULL COMMENT '是否隐藏问题：0-否 1-是',
+    jump_rule   text                DEFAULT NULL COMMENT '跳转规则',
     PRIMARY KEY (id),
     KEY idx_template_id(template_id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '模板问题';
@@ -99,6 +101,8 @@ CREATE TABLE form_question (
     page_number int(10)             DEFAULT 1 NOT NULL COMMENT '所属页',
     widget_type smallint(6)         DEFAULT 1 NOT NULL COMMENT '控件类型',
     widget_rule text                          NOT NULL COMMENT '控件规则',
+    hidden      tinyint(2)          DEFAULT 0 NOT NULL COMMENT '是否隐藏问题：0-否 1-是',
+    jump_rule   text                DEFAULT NULL COMMENT '跳转规则',
     PRIMARY KEY (id),
     KEY idx_form_id(form_id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '表单问题';

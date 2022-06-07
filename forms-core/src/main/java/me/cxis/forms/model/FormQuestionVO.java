@@ -1,6 +1,7 @@
 package me.cxis.forms.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class FormQuestionVO implements Serializable {
 
@@ -19,6 +20,11 @@ public class FormQuestionVO implements Serializable {
     private Integer widgetType;
 
     private WidgetRuleVO widgetRule;
+
+
+    private Boolean hidden;
+
+    private List<JumpRuleVO> jumpRules;
 
     public Long getId() {
         return id;
@@ -84,6 +90,22 @@ public class FormQuestionVO implements Serializable {
         this.widgetRule = widgetRule;
     }
 
+    public Boolean getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public List<JumpRuleVO> getJumpRules() {
+        return jumpRules;
+    }
+
+    public void setJumpRules(List<JumpRuleVO> jumpRules) {
+        this.jumpRules = jumpRules;
+    }
+
     @Override
     public String toString() {
         return "FormQuestionVO{" +
@@ -95,6 +117,8 @@ public class FormQuestionVO implements Serializable {
                 ", pageNumber=" + pageNumber +
                 ", widgetType=" + widgetType +
                 ", widgetRule=" + widgetRule +
+                ", hidden=" + hidden +
+                ", jumpRules=" + jumpRules +
                 '}';
     }
 }

@@ -17,7 +17,7 @@ public class FormQuestionDao {
     public void batchSave(List<FormQuestionDO> questions) {
         LocalDateTime now = LocalDateTime.now();
         questions.forEach(question -> {
-            question.setIsDeleted(false);
+            question.setDeleted(false);
             question.setCreateTime(now);
             question.setUpdateTime(now);
         });

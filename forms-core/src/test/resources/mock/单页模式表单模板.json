@@ -1,18 +1,16 @@
 {
   "id": null,
-  "templateId": 0,
   "code": null,
-  "version": null,
   "type": 1,
   "title": "分页模式表单模板",
   "description": "分页模式表单模板，按页进行填写，每页有若干题目",
   "status": null,
-  "totalPage": 2,
-  "mode": 1,
+  "totalPage": 1,
+  "mode": 3,
   "questions": [
     {
-      "id": null,
-      "formId": null,
+      "id": 1,
+      "templateId": 1,
       "title": "请输入姓名",
       "description": "姓名需要输入全称",
       "order": 1,
@@ -28,11 +26,25 @@
         "value": null,
         "defaultValue": null,
         "placeholder": "请输入您的姓名"
-      }
+      },
+      "hidden": false,
+      "jumpRules": [
+        {
+          "expressions": [
+            {
+              "expression": "contains",
+              "value": "小明"
+            }
+          ],
+          "jumpTo": [
+            2
+          ]
+        }
+      ]
     },
     {
-      "id": null,
-      "formId": null,
+      "id": 2,
+      "templateId": 1,
       "title": "请输入您的需求",
       "description": "请详细描述你想要什么，越详细越好",
       "order": 2,
@@ -48,15 +60,16 @@
         "value": null,
         "defaultValue": null,
         "placeholder": "这里输入你的需求"
-      }
+      },
+      "hidden": true
     },
     {
-      "id": null,
-      "formId": null,
+      "id": 3,
+      "templateId": 1,
       "title": "请输入离你最近的两条路的名字",
       "description": null,
       "order": 3,
-      "pageNumber": 2,
+      "pageNumber": 1,
       "widgetType": 3,
       "widgetRule": {
         "direction": "horizontal",
@@ -84,15 +97,38 @@
             "placeholder": null
           }
         ]
-      }
+      },
+      "hidden": false,
+      "jumpRules": [
+        {
+          "expressions": [
+            {
+              "item": 1,
+              "expression": "contains",
+              "value": "小明",
+              "next": "and"
+            },
+            {
+              "item": 2,
+              "expression": "eq",
+              "value": "10",
+              "next": null
+            }
+          ],
+          "jumpTo": [
+            4,
+            5
+          ]
+        }
+      ]
     },
     {
-      "id": null,
-      "formId": null,
+      "id": 4,
+      "templateId": 1,
       "title": "选择一个出行方式",
       "description": "之选择最经常使用的出行方式即可",
       "order": 4,
-      "pageNumber": 3,
+      "pageNumber": 1,
       "widgetType": 4,
       "widgetRule": {
         "direction": "vertical",
@@ -120,15 +156,16 @@
             "defaultSelected": false
           }
         ]
-      }
+      },
+      "hidden": true
     },
     {
-      "id": null,
-      "formId": null,
+      "id": 5,
+      "templateId": 1,
       "title": "喜欢吃的东西",
       "description": "可以选择你喜欢吃的东西",
       "order": 5,
-      "pageNumber": 4,
+      "pageNumber": 1,
       "widgetType": 5,
       "widgetRule": {
         "direction": "vertical",
@@ -159,7 +196,8 @@
             "exclusive": true
           }
         ]
-      }
+      },
+      "hidden": true
     }
   ]
 }

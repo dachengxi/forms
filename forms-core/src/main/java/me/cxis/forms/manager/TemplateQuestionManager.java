@@ -56,6 +56,8 @@ public class TemplateQuestionManager {
         target.setPageNumber(source.getPageNumber());
         target.setWidgetType(source.getWidgetType());
         target.setWidgetRule(JSON.toJSONString(source.getWidgetRule()));
+        target.setHidden(source.getHidden());
+        target.setJumpRule(JSON.toJSONString(source.getJumpRules()));
         return target;
     }
 }

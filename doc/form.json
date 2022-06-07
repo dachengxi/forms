@@ -30,7 +30,7 @@
         "placeholder": "Please input your name"
       },
       "hidden": false,
-      "jumpRule": [
+      "jumpRules": [
         {
           "expressions": [
             {
@@ -101,7 +101,7 @@
         ]
       },
       "hidden": false,
-      "jumpRule": [
+      "jumpRules": [
         {
           "expressions": [
             {

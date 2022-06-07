@@ -19,8 +19,8 @@ class TemplateAdminControllerIntegrationSpec extends AbstractIntegrationSpec {
     private TemplateAdminController templateAdminController;
 
     def "测试save方法" () {
-        given: "一个分页模式表单模板"
-        def json = this.getClass().getResource("/mock/分页模式表单模板.json").text
+        given: "一个单页模式表单模板"
+        def json = this.getClass().getResource("/mock/单页模式表单模板.json").text
         def template = JSONObject.parseObject(json, TemplateVO.class)
 
         when: "调用保存模板方法"

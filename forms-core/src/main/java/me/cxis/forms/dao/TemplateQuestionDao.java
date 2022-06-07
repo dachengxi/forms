@@ -17,7 +17,7 @@ public class TemplateQuestionDao {
     public void batchSave(List<TemplateQuestionDO> questions) {
         LocalDateTime now = LocalDateTime.now();
         questions.forEach(question -> {
-            question.setIsDeleted(false);
+            question.setDeleted(false);
             question.setCreateTime(now);
             question.setUpdateTime(now);
         });
