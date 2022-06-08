@@ -5,11 +5,10 @@ import com.alibaba.fastjson2.JSON;
 import me.cxis.forms.enums.WidgetType;
 import me.cxis.forms.manager.UserFormAnswerManager;
 import me.cxis.forms.manager.UserFormManager;
-import me.cxis.forms.model.FormQuestionVO;
-import me.cxis.forms.model.FormVO;
-import me.cxis.forms.model.UserFormAnswerVO;
-import me.cxis.forms.model.UserFormVO;
+import me.cxis.forms.model.*;
 import me.cxis.forms.model.param.UserFormSaveParam;
+import me.cxis.forms.rules.JumpRule;
+import me.cxis.forms.rules.JumpRuleSelector;
 import me.cxis.forms.widgets.Widget;
 import me.cxis.forms.widgets.WidgetSelector;
 import org.apache.commons.collections4.CollectionUtils;
@@ -37,6 +36,9 @@ public class UserFormService {
 
     @Resource
     private WidgetSelector widgetSelector;
+
+    @Resource
+    private JumpRuleSelector jumpRuleSelector;
 
     @Transactional
     public UserFormVO save(UserFormSaveParam param) {
@@ -76,20 +78,30 @@ public class UserFormService {
         // 查询用户表单
         UserFormVO userForm = userFormManager.queryUserForm(param.getUserId(), param.getFormId());
         if (userForm == null) {
+            List<UserFormAnswerVO> neededAnswers = new ArrayList<>();
             // 新增
             if (CollectionUtils.isNotEmpty(answers)) {
                 // 表单问题
                 List<FormQuestionVO> questions = form.getQuestions();
+
+                // questionId和问题的映射
                 Map<Long, FormQuestionVO> questionMapping = new HashMap<>();
                 for (FormQuestionVO question : questions) {
                     Long questionId = question.getId();
                     questionMapping.putIfAbsent(questionId, question);
                 }
 
-                // 校验答案
+                // questionId和答案的映射
+                Map<Long, UserFormAnswerVO> questionAnswerMapping = new HashMap<>();
                 for (UserFormAnswerVO answer : answers) {
-                    FormQuestionVO question = questionMapping.get(answer.getQuestionId());
-                    answer.setQuestionId(question.getId());
+                    Long questionId = answer.getQuestionId();
+                    questionAnswerMapping.putIfAbsent(questionId, answer);
+                }
+
+                // 校验问题的跳转规则，并将不需要的题目以及答案移除掉
+                for (FormQuestionVO question : questions) {
+                    // 校验答案
+                    UserFormAnswerVO answer = questionAnswerMapping.get(question.getId());
                     answer.setWidgetType(question.getWidgetType());
                     Widget widget = widgetSelector.select(question.getWidgetType());
                     if (widget != null) {
@@ -99,7 +111,27 @@ public class UserFormService {
                     WidgetType widgetType = WidgetType.of(question.getWidgetType());
                     if (widget != null && widgetType.isMultiValues()) {
                         answer.setValue(JSON.toJSONString(answer.getValues()));
-                        answer.setValues(null);
+                    }
+
+                    // 校验跳转规则
+                    if (!question.getHidden() && CollectionUtils.isNotEmpty(question.getJumpRules())) {
+                        neededAnswers.add(questionAnswerMapping.get(question.getId()));
+                        JumpRule jumpRule = jumpRuleSelector.choose(question.getWidgetType());
+                        if (jumpRule == null) {
+                            continue;
+                        }
+
+                        for (JumpRuleVO rule : question.getJumpRules()) {
+                            boolean canJump = jumpRule.canJump(rule, questionAnswerMapping.get(question.getId()));
+                            if (canJump) {
+                                List<Long> jumpTo = rule.getJumpTo();
+                                if (CollectionUtils.isNotEmpty(jumpTo)) {
+                                    for (Long questionId : jumpTo) {
+                                        neededAnswers.add(questionAnswerMapping.get(questionId));
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -112,12 +144,12 @@ public class UserFormService {
             Long userFormId = userFormManager.save(userForm);
 
             // 保存用户表单答案
-            if (userFormId != null && CollectionUtils.isNotEmpty(answers)) {
-                answers.forEach(answer -> {
+            if (userFormId != null && CollectionUtils.isNotEmpty(neededAnswers)) {
+                neededAnswers.forEach(answer -> {
                     answer.setUserFormId(userFormId);
                     answer.setUserId(param.getUserId());
                 });
-                userFormAnswerManager.save(answers);
+                userFormAnswerManager.save(neededAnswers);
             }
             userForm.setId(userFormId);
             return userForm;

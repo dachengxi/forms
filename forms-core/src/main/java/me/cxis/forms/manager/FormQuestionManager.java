@@ -1,10 +1,12 @@
 package me.cxis.forms.manager;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import me.cxis.forms.dao.FormQuestionDao;
 import me.cxis.forms.dao.model.FormQuestionDO;
 import me.cxis.forms.model.FormQuestionVO;
+import me.cxis.forms.model.JumpRuleVO;
 import me.cxis.forms.model.WidgetRuleVO;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
@@ -71,6 +73,8 @@ public class FormQuestionManager {
         target.setPageNumber(source.getPageNumber());
         target.setWidgetType(source.getWidgetType());
         target.setWidgetRule(JSONObject.parseObject(source.getWidgetRule(), WidgetRuleVO.class));
+        target.setHidden(source.getHidden());
+        target.setJumpRules(JSONArray.parseArray(source.getJumpRule(), JumpRuleVO.class));
         return target;
     }
 
