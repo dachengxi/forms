@@ -38,6 +38,7 @@
         <fastjson.version>2.0.5</fastjson.version>
         <es.version>8.2.2</es.version>
         <jackson.version>2.12.3</jackson.version>
+        <jakarta.json-api.version>2.1.0</jakarta.json-api.version>
     </properties>
 
     <dependencyManagement>
@@ -128,6 +129,12 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.json</groupId>
+                <artifactId>jakarta.json-api</artifactId>
+                <version>${jakarta.json-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

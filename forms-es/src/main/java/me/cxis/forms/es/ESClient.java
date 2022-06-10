@@ -32,6 +32,6 @@ public class ESClient {
     }
 
     public void search() {
-        SearchResponse<>
+        // client.search()
     }
 }
