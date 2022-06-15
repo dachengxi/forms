@@ -133,4 +133,96 @@ PUT /forms/_doc/5
       ]
   }
 }
+
+PUT /forms/_doc/6
+{
+  "id": 6,
+  "user_id": 1000001,
+  "template_id": 1,
+  "form_id": 1,
+  "user_form_id": 2,
+  "question_id": 1,
+  "answer_id": 6,
+  "single_widget": true,
+  "answers": {
+    "value": "xiao ming"
+  }
+}
+
+PUT /forms/_doc/7
+{
+  "id": 7,
+  "user_id": 1000001,
+  "template_id": 1,
+  "form_id": 1,
+  "user_form_id": 2,
+  "question_id": 2,
+  "answer_id": 7,
+  "single_widget": true,
+  "answers": {
+    "value": "this is my description"
+  }
+}
+
+PUT /forms/_doc/8
+{
+  "id": 8,
+  "user_id": 1000001,
+  "template_id": 1,
+  "form_id": 1,
+  "user_form_id": 2,
+  "question_id": 3,
+  "answer_id": 8,
+  "single_widget": false,
+  "answers": {
+    "values": [
+        {
+          "value": "Jack road"
+        },
+        {
+          "value": "Mark road"
+        }
+      ]
+  }
+}
+
+PUT /forms/_doc/9
+{
+  "id": 9,
+  "user_id": 1000001,
+  "template_id": 1,
+  "form_id": 1,
+  "user_form_id": 2,
+  "question_id": 4,
+  "answer_id": 9,
+  "single_widget": true,
+  "answers": {
+    "value": "女"
+  }
+}
+
+PUT /forms/_doc/10
+{
+  "id": 10,
+  "user_id": 1000001,
+  "template_id": 1,
+  "form_id": 1,
+  "user_form_id": 2,
+  "question_id": 5,
+  "answer_id": 10,
+  "single_widget": false,
+  "answers": {
+    "values": [
+        {
+          "value": "A"
+        },
+        {
+          "value": "B"
+        },
+        {
+          "value": ""
+        }
+      ]
+  }
+}
 ```
