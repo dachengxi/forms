@@ -29,4 +29,16 @@ class TemplateAdminControllerIntegrationSpec extends AbstractIntegrationSpec {
         then: "期望返回新增的模板ID"
         result
     }
+
+    def "亚健康状况评估表单模板创建" () {
+        given: "亚健康状况评估表单模板"
+        def json = this.getClass().getResource("/mock/亚健康状况评估表单模板.json").text
+        def template = JSONObject.parseObject(json, TemplateVO.class)
+
+        when: "调用保存模板方法"
+        def result = templateAdminController.save(template)
+
+        then: "期望返回新增的模板ID"
+        result == 1
+    }
 }

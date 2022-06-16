@@ -1,0 +1,229 @@
+{
+  "id": null,
+  "templateId": 1,
+  "code": null,
+  "version": null,
+  "type": 1,
+  "title": "亚健康状况评估",
+  "description": "将对您进行亚健康状况评估，请耐心填写问卷",
+  "status": null,
+  "totalPage": 1,
+  "mode": 3,
+  "questions": [
+    {
+      "id": null,
+      "formId": null,
+      "title": "请选择性别",
+      "description": null,
+      "order": 1,
+      "pageNumber": 1,
+      "widgetType": 4,
+      "widgetRule": {
+        "direction": "vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": null,
+            "tailTitle": "男",
+            "value": "male",
+            "order": 1,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "女",
+            "value": "female",
+            "order": 2,
+            "defaultSelected": false
+          }
+        ]
+      },
+      "hidden": false
+    },
+    {
+      "id": null,
+      "formId": null,
+      "title": "请输入您的年龄",
+      "description": null,
+      "order": 2,
+      "pageNumber": 1,
+      "widgetType": 6,
+      "widgetRule": {
+        "headTitle": null,
+        "tailTitle": "岁",
+        "required": true,
+        "min": 0,
+        "max": 150,
+        "direction": null,
+        "value": null,
+        "defaultValue": null,
+        "placeholder": null
+      },
+      "hidden": false
+    },
+    {
+      "id": null,
+      "formId": null,
+      "title": "请输入您的身高",
+      "description": null,
+      "order": 3,
+      "pageNumber": 1,
+      "widgetType": 6,
+      "widgetRule": {
+        "headTitle": null,
+        "tailTitle": "cm",
+        "required": true,
+        "min": 0,
+        "max": 230,
+        "direction": null,
+        "value": null,
+        "defaultValue": null,
+        "placeholder": null
+      },
+      "hidden": false
+    },
+    {
+      "id": null,
+      "formId": null,
+      "title": "请输入您的体重",
+      "description": null,
+      "order":4,
+      "pageNumber": 1,
+      "widgetType": 6,
+      "widgetRule": {
+        "headTitle": null,
+        "tailTitle": "kg",
+        "required": true,
+        "min": 0,
+        "max": 500,
+        "direction": null,
+        "value": null,
+        "defaultValue": null,
+        "placeholder": null
+      },
+      "hidden": false
+    },
+    {
+      "id": null,
+      "formId": null,
+      "title": "目前从事的职业是？",
+      "description": null,
+      "order": 5,
+      "pageNumber": 1,
+      "widgetType": 4,
+      "widgetRule": {
+        "direction": "vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": null,
+            "tailTitle": "自由职业",
+            "value": "free",
+            "order": 1,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "学生",
+            "value": "student",
+            "order": 2,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "工人",
+            "value": "worker",
+            "order": 3,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "其他",
+            "value": "other",
+            "order": 4,
+            "defaultSelected": false
+          }
+        ]
+      },
+      "hidden": false
+    },
+    {
+      "id": null,
+      "formId": null,
+      "title": "平时都喜欢做那些活动？",
+      "description": null,
+      "order": 6,
+      "pageNumber": 1,
+      "widgetType": 5,
+      "widgetRule": {
+        "direction": "vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": null,
+            "tailTitle": "吃喝",
+            "value": "eat",
+            "order": 1,
+            "defaultSelected": false,
+            "exclusive": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "唱歌跳舞",
+            "value": "sing",
+            "order": 2,
+            "defaultSelected": false,
+            "exclusive": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "运动",
+            "value": "sport",
+            "order": 3,
+            "defaultSelected": false,
+            "exclusive": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "其他",
+            "value": "other",
+            "order": 4,
+            "defaultSelected": false,
+            "exclusive": false
+          }
+        ]
+      },
+      "hidden": false
+    },
+    {
+      "id": null,
+      "formId": null,
+      "title": "是否会定期体检？",
+      "description": null,
+      "order": 7,
+      "pageNumber": 1,
+      "widgetType": 4,
+      "widgetRule": {
+        "direction": "vertical",
+        "required": true,
+        "items": [
+          {
+            "headTitle": null,
+            "tailTitle": "是",
+            "value": "yes",
+            "order": 1,
+            "defaultSelected": false
+          },
+          {
+            "headTitle": null,
+            "tailTitle": "否",
+            "value": "no",
+            "order": 2,
+            "defaultSelected": false
+          }
+        ]
+      },
+      "hidden": false
+    }
+  ]
+}

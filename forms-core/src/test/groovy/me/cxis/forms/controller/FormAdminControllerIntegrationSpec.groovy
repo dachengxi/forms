@@ -28,4 +28,16 @@ class FormAdminControllerIntegrationSpec extends AbstractIntegrationSpec {
         then: "期望返回新增的表单ID"
         result
     }
+
+    def "亚健康状况评估表单创建" () {
+        given: "亚健康状况评估表单"
+        def json = this.getClass().getResource("/mock/亚健康状况评估表单.json").text
+        def form = JSONObject.parseObject(json, FormVO.class)
+
+        when: "调用保存表单方法"
+        def result = formAdminController.save(form)
+
+        then: "期望返回新增的表单ID"
+        result == 1
+    }
 }

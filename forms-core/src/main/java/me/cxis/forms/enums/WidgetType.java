@@ -5,7 +5,8 @@ public enum WidgetType {
     TEXTAREA(2, "textarea", false, "多行文本"),
     MULTI_INPUT(3, "multiInput", true, "多项单行文本"),
     RADIO(4, "radio", false, "单选"),
-    CHECKBOX(5, "checkbox", true, "多选")
+    CHECKBOX(5, "checkbox", true, "多选"),
+    NUMBER_INPUT(6, "numberInput", false, "数字输入框")
     ;
 
     public static WidgetType of(int type) {

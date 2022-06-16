@@ -114,20 +114,22 @@ public class UserFormService {
                     }
 
                     // 校验跳转规则
-                    if (!question.getHidden() && CollectionUtils.isNotEmpty(question.getJumpRules())) {
+                    if (!question.getHidden()) {
                         neededAnswers.add(questionAnswerMapping.get(question.getId()));
-                        JumpRule jumpRule = jumpRuleSelector.choose(question.getWidgetType());
-                        if (jumpRule == null) {
-                            continue;
-                        }
+                        if (CollectionUtils.isNotEmpty(question.getJumpRules())) {
+                            JumpRule jumpRule = jumpRuleSelector.choose(question.getWidgetType());
+                            if (jumpRule == null) {
+                                continue;
+                            }
 
-                        for (JumpRuleVO rule : question.getJumpRules()) {
-                            boolean canJump = jumpRule.canJump(rule, questionAnswerMapping.get(question.getId()));
-                            if (canJump) {
-                                List<Long> jumpTo = rule.getJumpTo();
-                                if (CollectionUtils.isNotEmpty(jumpTo)) {
-                                    for (Long questionId : jumpTo) {
-                                        neededAnswers.add(questionAnswerMapping.get(questionId));
+                            for (JumpRuleVO rule : question.getJumpRules()) {
+                                boolean canJump = jumpRule.canJump(rule, questionAnswerMapping.get(question.getId()));
+                                if (canJump) {
+                                    List<Long> jumpTo = rule.getJumpTo();
+                                    if (CollectionUtils.isNotEmpty(jumpTo)) {
+                                        for (Long questionId : jumpTo) {
+                                            neededAnswers.add(questionAnswerMapping.get(questionId));
+                                        }
                                     }
                                 }
                             }
