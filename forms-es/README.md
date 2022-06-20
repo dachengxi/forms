@@ -94,7 +94,7 @@ PUT /forms_sub_health
         "type": "integer"
       },
       "work": {
-        "type": "text"
+        "type": "keyword"
       },
       "activity": {
         "type": "text"
@@ -573,6 +573,465 @@ GET /forms_sub_health/_search
         "term": {
           "gender": {
             "value": "male"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 求不同性别中年龄最大的数据-collapse
+
+```
+GET /forms_sub_health/_search
+{
+  "collapse": {
+    "field": "gender",
+    "inner_hits": {
+      "name": "age",
+      "size": 1,
+      "sort": {
+        "age": {
+          "order": "asc"
+        }
+      }
+    }
+  }
+}
+```
+
+## 按照从事工作进行分组
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_work": {
+      "terms": {
+        "field": "work"
+      }
+    }
+  }
+}
+```
+
+## 按照从事工作进行分组，并统计每个分组内男女的数量
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_work": {
+      "terms": {
+        "field": "work"
+      },
+      "aggs": {
+        "group_by_gender": {
+          "terms": {
+            "field": "gender"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 统计工作是学生的人数
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "count_student": {
+      "filter": {
+        "term": {
+          "work": {
+            "value": "student"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+或者：
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "work": {
+            "value": "student"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 统计工作是学生的平均年龄
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "avg_age_student": {
+      "filter": {
+        "term": {
+          "work": {
+            "value": "student"
+          }
+        }
+      },
+      "aggs": {
+        "avg_age": {
+          "avg": {
+            "field": "age"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 分别统计职业是自由和学生的人数
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "count_free_student": {
+      "filters": {
+        "filters": {
+          "work_free": {
+            "term": {
+              "work": {
+                "value": "free"
+              }
+            }
+          },
+          "work_student": {
+            "term": {
+              "work": {
+                "value": "student"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 分别统计职业是自由和学生的人数，以及年龄大于140的人数
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "count_free_student": {
+      "filters": {
+        "filters": {
+          "work_free": {
+            "term": {
+              "work": {
+                "value": "free"
+              }
+            }
+          },
+          "work_student": {
+            "term": {
+              "work": {
+                "value": "student"
+              }
+            }
+          },
+          "age_gt_140": {
+            "range": {
+              "age": {
+                "gt": 140
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 将年龄按照0-18，19-100，100-max进行分组
+
+range用from和to来定义区间，是左闭右开。
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 0,
+  "aggs": {
+    "age_range": {
+      "range": {
+        "field": "age",
+        "ranges": [
+          {
+            "to": "19"
+          },
+          {
+            "from": "19",
+            "to": "101"
+          },
+          {
+            "from": "101"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+## 按照从事工作进行分组，并获取每个组里面年龄最大的，同时展示每个组里面年龄排前2的人
+
+```
+GET /forms_sub_health/_search
+{
+  "collapse": {
+    "field": "work",
+    "inner_hits": {
+      "name": "age_inner",
+      "size": 2,
+      "sort": {
+        "age": {
+          "order": "desc"
+        }
+      }
+    }
+  },
+  "sort": {
+    "age": {
+      "order": "desc"
+    }
+  }
+}
+```
+
+## 过滤所有男性，并且将过滤后的数据按照从事工作进行分组
+
+先过滤再聚合，该结果中hits中是过滤后的数据：
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 5,
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "gender": {
+            "value": "male"
+          }
+        }
+      }
+    }
+  },
+  "aggs": {
+    "group_by_work": {
+      "terms": {
+        "field": "work"
+      }
+    }
+  }
+}
+```
+
+先filter聚合再内嵌terms聚合，该结果中hits是过滤前的数据：
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 5,
+  "aggs": {
+    "group_of_male": {
+      "filter": {
+        "term": {
+          "gender": {
+            "value": "male"
+          }
+        }
+      },
+      "aggs": {
+        "count_of_work": {
+          "terms":{
+            "field": "work"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 过滤所有男性，并且将过滤后的数据按照从事工作进行分组，并求每个分组的平均年龄
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 5,
+  "aggs": {
+    "group_of_male": {
+      "filter": {
+        "term": {
+          "gender": {
+            "value": "male"
+          }
+        }
+      },
+      "aggs": {
+        "count_of_work": {
+          "terms":{
+            "field": "work"
+          },
+          "aggs": {
+            "avg_age": {
+              "avg": {
+                "field": "age"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 过滤所有男性，并且将过滤后的数据按照从事工作进行分组，并求每个分组的平均年龄，并按照平均年龄排序
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 5,
+  "aggs": {
+    "group_of_male": {
+      "filter": {
+        "term": {
+          "gender": {
+            "value": "male"
+          }
+        }
+      },
+      "aggs": {
+        "count_of_work": {
+          "terms":{
+            "field": "work",
+            "order": {
+              "avg_age": "asc"
+            }
+          },
+          "aggs": {
+            "avg_age": {
+              "avg": {
+                "field": "age"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 过滤所有男性，并且将过滤后的数据按照从事工作进行分组，并求每个分组的平均年龄，并按照平均年龄排序，并过滤平均年龄大于75的分组的数据
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 5,
+  "aggs": {
+    "group_of_male": {
+      "filter": {
+        "term": {
+          "gender": {
+            "value": "male"
+          }
+        }
+      },
+      "aggs": {
+        "count_of_work": {
+          "terms":{
+            "field": "work",
+            "order": {
+              "avg_age": "asc"
+            }
+          },
+          "aggs": {
+            "avg_age": {
+              "avg": {
+                "field": "age"
+              }
+            },
+            "having_age_gt_75": {
+              "bucket_selector": {
+                "buckets_path": {
+                  "avg_age_param": "avg_age"
+                },
+                "script": "params.avg_age_param > 75"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 过滤所有男性，并且将过滤后的数据按照从事工作进行分组，并过滤每个分组中总数大于1250的数据
+
+```
+GET /forms_sub_health/_search
+{
+  "size": 5,
+  "aggs": {
+    "group_of_male": {
+      "filter": {
+        "term": {
+          "gender": {
+            "value": "male"
+          }
+        }
+      },
+      "aggs": {
+        "count_of_work": {
+          "terms":{
+            "field": "work"
+          },
+          "aggs": {
+            "having": {
+              "bucket_selector": {
+                "script": "params.count_of_group > 1250",
+                "buckets_path": {
+                  "count_of_group": "_count"
+                }
+              }
+            }
           }
         }
       }
