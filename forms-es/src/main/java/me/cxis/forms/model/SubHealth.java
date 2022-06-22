@@ -1,5 +1,7 @@
 package me.cxis.forms.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,12 +11,16 @@ public class SubHealth implements Serializable {
 
     private Long id;
 
+    @JsonProperty("user_id")
     private Long userId;
 
+    @JsonProperty("template_id")
     private Long templateId;
 
+    @JsonProperty("form_id")
     private Long formId;
 
+    @JsonProperty("user_form_id")
     private Long userFormId;
 
     private String gender;
@@ -29,7 +35,8 @@ public class SubHealth implements Serializable {
 
     private List<String> activity;
 
-    private Boolean physicalExam;
+    @JsonProperty("physical_exam")
+    private String physicalExam;
 
     public Long getId() {
         return id;
@@ -119,11 +126,11 @@ public class SubHealth implements Serializable {
         this.activity = activity;
     }
 
-    public Boolean getPhysicalExam() {
+    public String getPhysicalExam() {
         return physicalExam;
     }
 
-    public void setPhysicalExam(Boolean physicalExam) {
+    public void setPhysicalExam(String physicalExam) {
         this.physicalExam = physicalExam;
     }
 

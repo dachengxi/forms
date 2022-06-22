@@ -35,6 +35,12 @@ bin/elasticsearch-create-enrollment-token --scope kibana
 - Chrome上使用ElasticSearch Head插件，地址输入：https://localhost:9200/?auth_user=elastic&auth_password=12345678
 - 使用Kibana访问，Kibana --> 左侧主菜单 --> Management --> Dev Tools
 
+由于访问es默认需要使用https，需要从docker中复制http_ca.crt文件到本地，命令如下：
+
+```
+docker cp es01:/usr/share/elasticsearch/config/certs/http_ca.crt /目的地址
+```
+
 # 安装、配置、启动Kibana
 
 本地测试使用docker安装Kibana，命令如下：
